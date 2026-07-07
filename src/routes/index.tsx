@@ -430,7 +430,7 @@ function JoinModal({ open, onClose }: { open: boolean; onClose: () => void }) {
         <div className="text-center">
           <Logo className="mx-auto h-16 w-16 rounded-xl object-cover" />
           <h3 id="join-title" className="mt-5 font-display text-3xl font-semibold">
-            Join <span className="text-gold-gradient">Johnny Bravo</span> on 1win
+            Join <span className="text-gold-gradient">Johnny Bravo</span> on <span style={{ fontVariantNumeric: "lining-nums" }}>1</span>win
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             You're one click away from unlocking weekly leaderboards, cashback, giveaways and VIP rewards.
