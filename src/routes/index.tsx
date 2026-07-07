@@ -8,8 +8,8 @@ import qrAsset from "@/assets/qr-1win.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Johnny Bravo Rewards — Beyond Rewards. Beyond Expectations." },
-      { name: "description", content: "A premium gaming experience built on service, trust and exceptional value. Join Johnny Bravo Rewards on 1win." },
+      { title: "Johnny Bravo Rewards | Beyond Rewards. Beyond Expectations." },
+      { name: "description", content: "Johnny Bravo Rewards on 1win. Weekly leaderboards, cashback, giveaways and VIP benefits designed to deliver exceptional value." },
       { property: "og:title", content: "Johnny Bravo Rewards" },
       { property: "og:description", content: "Weekly leaderboards, exclusive promotions, cashback, VIP rewards and more." },
       { property: "og:image", content: bannerAsset.url },
