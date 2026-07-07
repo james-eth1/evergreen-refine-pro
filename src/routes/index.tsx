@@ -185,8 +185,7 @@ function Hero({ onJoin }: { onJoin: () => void }) {
             <span className="text-gold-gradient">Beyond Expectations.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
-            A premium gaming experience built on service, trust and exceptional value.
-            Where exceptional service, trust and rewarding experiences create a new standard for every player.
+            Where exceptional service, trust and rewarding experience create a new standard for every player.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
             <button
