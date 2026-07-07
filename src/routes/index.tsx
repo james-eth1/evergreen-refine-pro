@@ -307,7 +307,7 @@ function Community() {
           Follow the <span className="text-gold-gradient">community</span>
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          Big wins, giveaways, guides and live sessions — connect with Johnny Bravo across every platform.
+          Big wins, giveaways, guides and live sessions. Connect with Johnny Bravo across every platform.
         </p>
 
         <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
