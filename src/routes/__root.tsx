@@ -24,7 +24,7 @@ function NotFoundComponent() {
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:brightness-110"
           >
             Go home
           </Link>
@@ -56,13 +56,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:brightness-110"
           >
             Try again
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-full border border-input bg-background px-5 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-accent"
           >
             Go home
           </a>
@@ -77,17 +77,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "JohnyBravo — Play Qzino under code JOHNY" },
-      { name: "description", content: "Sign up on Qzino with code JOHNY for instant VIP transfer, up to 16% lossback, 125% deposit bonus, VIP milestones and a $250 weekly leaderboard." },
-      { name: "author", content: "JohnyBravo" },
-      { property: "og:title", content: "JohnyBravo — Play Qzino under code JOHNY" },
-      { property: "og:description", content: "Instant VIP transfer, 16% lossback, 125% deposit bonus and weekly leaderboards under code JOHNY." },
+      { title: "Johnny Bravo Rewards — Beyond Rewards. Beyond Expectations." },
+      { name: "description", content: "Join Johnny Bravo Rewards on 1win. Weekly leaderboards, exclusive promotions, cashback, VIP rewards and a trusted community for every player." },
+      { name: "author", content: "Johnny Bravo Rewards" },
+      { property: "og:title", content: "Johnny Bravo Rewards — Beyond Rewards. Beyond Expectations." },
+      { property: "og:description", content: "A premium gaming experience built on service, trust and exceptional value. Join through code JOHNY on 1win." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", sizes: "any" },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -120,10 +119,8 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );

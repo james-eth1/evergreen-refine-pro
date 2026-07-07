@@ -1,219 +1,208 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, ChevronDown } from "lucide-react";
-import heroVault from "@/assets/hero-vault.jpg";
+import { useEffect, useState } from "react";
+import { ArrowRight, X, Trophy, Gift, Wallet, Users, Crown, Sparkles, BookOpen, ShieldCheck } from "lucide-react";
+import logoAsset from "@/assets/logo.png.asset.json";
+import bannerAsset from "@/assets/banner.png.asset.json";
+import qrAsset from "@/assets/qr-1win.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "JohnyBravo — Play Qzino under code JOHNY" },
-      { name: "description", content: "Sign up on Qzino with code JOHNY. Instant VIP transfer, up to 16% lossback, 125% deposit bonus, VIP milestones and a $250 weekly leaderboard." },
-      { property: "og:title", content: "JohnyBravo — Play Qzino under code JOHNY" },
-      { property: "og:description", content: "Instant VIP transfer, 16% lossback, 125% deposit bonus and weekly leaderboards under code JOHNY." },
+      { title: "Johnny Bravo Rewards — Beyond Rewards. Beyond Expectations." },
+      { name: "description", content: "A premium gaming experience built on service, trust and exceptional value. Join Johnny Bravo Rewards on 1win." },
+      { property: "og:title", content: "Johnny Bravo Rewards" },
+      { property: "og:description", content: "Weekly leaderboards, exclusive promotions, cashback, VIP rewards and more." },
+      { property: "og:image", content: bannerAsset.url },
+      { name: "twitter:image", content: bannerAsset.url },
     ],
   }),
-  component: Index,
+  component: LandingPage,
 });
 
-const QZINO_URL = "https://qzino.com/?ref=JOHNY";
+const AFFILIATE_URL = "https://lkfg.pro/4dbd1b";
 
-const stats = [
-  { value: "16%", label: "Up to Lossback" },
-  { value: "125%", label: "Deposit Bonus" },
-  { value: "VIP", label: "Milestones" },
-  { value: "$250", label: "Weekly Leaderboard" },
+const rewards = [
+  { icon: Trophy, title: "Weekly Leaderboards", body: "Climb the ranks each week and cash in on top-player prize pools." },
+  { icon: Sparkles, title: "Exclusive Promotions", body: "Members-only bonuses, drops and campaigns you won't find anywhere else." },
+  { icon: Wallet, title: "Cashback Opportunities", body: "Get a portion of your play returned — softening losses, boosting sessions." },
+  { icon: Gift, title: "Community Giveaways", body: "Frequent giveaways for our players — no strings, just rewards." },
+  { icon: Crown, title: "VIP Rewards", body: "Custom perks, personal support and elevated benefits for VIP members." },
+  { icon: ShieldCheck, title: "Player Benefits", body: "Trusted service, reliable payouts and consistent value on every deposit." },
+  { icon: BookOpen, title: "Casino Guides & Strategy", body: "Beginner-friendly tips and strategy breakdowns to sharpen your game." },
 ];
 
-const proofs = [
-  { src: "https://hercules-cdn.com/file_rSQaU8w43kW69AM3m0h1SMvD", tag: "Big Win", caption: "Total Win: $540.80 — 54x Bet on Merge Up 2" },
-  { src: "https://hercules-cdn.com/file_wMlVUgAk7QPpliBMjT94BcuC", tag: "Bonus Drop", caption: "FS Bonus Reward: 1,580 USDT" },
-  { src: "https://hercules-cdn.com/file_XZfF8ygR4YbQKp5cDVnOj230", tag: "Paid Out", caption: "Withdrawal Confirmed: 70.83 SOL — Completed" },
-  { src: "https://hercules-cdn.com/file_G6vvMBoeInleDM18Ljy2TKVv", tag: "Leaderboard", caption: "Top Wins — Blackjack $2,306 | Coin Flip $13k wagered" },
-  { src: "https://hercules-cdn.com/file_BKwtqW1Aev99hvDYjdF1HlX7", tag: "Proof", caption: "Community Wins Keep Rolling In" },
-  { src: "https://hercules-cdn.com/file_mpXz2mLgIpM3WJ3U864fAgnx", tag: "Proof", caption: "More Big Hits Under Code JOHNY" },
-  { src: "https://hercules-cdn.com/file_QHFd6FDqIyveLPuU4Az7OCBC", tag: "Proof", caption: "Daily Rewards Stacking Up" },
-  { src: "https://hercules-cdn.com/file_0GuFH7xZeiCpQOSsi3I4wDVo", tag: "Proof", caption: "Even More Wins — This Community Eats" },
+const socials = [
+  {
+    name: "X (Twitter)",
+    href: "https://x.com/johnyy_bravooo",
+    path: "M18.244 2H21.5l-7.5 8.57L23 22h-6.938l-5.43-6.62L4.4 22H1.14l8.02-9.16L1 2h7.09l4.9 6.03L18.244 2Zm-1.22 18h1.87L7.06 4H5.08l11.945 16Z",
+  },
+  {
+    name: "TikTok",
+    href: "https://www.tiktok.com/@johnyy_bravooo",
+    path: "M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9.01a8.16 8.16 0 0 0 4.77 1.52V7.08a4.79 4.79 0 0 1-1.84-.39Z",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/johnnybravorewards",
+    path: "M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.05.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.05.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.71 3.71 0 0 1-1.38-.9 3.71 3.71 0 0 1-.9-1.38c-.16-.42-.36-1.05-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.05-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.5.01-4.74.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.26.82-.38.38-.62.75-.82 1.26-.15.39-.33.97-.38 2.04C2.7 8.5 2.7 8.85 2.7 12s0 3.5.06 4.74c.05 1.07.23 1.65.38 2.04.2.51.44.88.82 1.26.38.38.75.62 1.26.82.39.15.97.33 2.04.38 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.26-.82.38-.38.62-.75.82-1.26.15-.39.33-.97.38-2.04.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-1.07-.23-1.65-.38-2.04a3.4 3.4 0 0 0-.82-1.26 3.4 3.4 0 0 0-1.26-.82c-.39-.15-.97-.33-2.04-.38C15.5 4.01 15.15 4 12 4Zm0 3.05a4.95 4.95 0 1 1 0 9.9 4.95 4.95 0 0 1 0-9.9Zm0 8.16a3.21 3.21 0 1 0 0-6.42 3.21 3.21 0 0 0 0 6.42Zm5.15-8.36a1.15 1.15 0 1 1 0-2.3 1.15 1.15 0 0 1 0 2.3Z",
+  },
+  {
+    name: "Discord",
+    href: "https://dsc.gg/jbrewards",
+    path: "M20.32 4.57A17.6 17.6 0 0 0 16.06 3.2a12.9 12.9 0 0 0-.57 1.17 16.36 16.36 0 0 0-4.98 0A12.6 12.6 0 0 0 9.93 3.2a17.5 17.5 0 0 0-4.26 1.37C2.85 8.7 2.1 12.7 2.47 16.65a17.7 17.7 0 0 0 5.4 2.73c.44-.6.83-1.24 1.16-1.92-.63-.24-1.24-.53-1.82-.88.15-.11.3-.23.44-.35a12.6 12.6 0 0 0 10.7 0c.15.12.3.24.44.35-.58.35-1.19.64-1.82.88.33.68.72 1.32 1.16 1.92a17.7 17.7 0 0 0 5.4-2.73c.46-4.58-.72-8.55-2.11-12.08ZM9.35 14.4c-1.05 0-1.92-.97-1.92-2.16 0-1.19.85-2.17 1.92-2.17s1.94.98 1.92 2.17c0 1.19-.85 2.16-1.92 2.16Zm5.3 0c-1.05 0-1.92-.97-1.92-2.16 0-1.19.85-2.17 1.92-2.17s1.94.98 1.92 2.17c0 1.19-.85 2.16-1.92 2.16Z",
+  },
 ];
 
-const perks = [
-  { n: "01", title: "Instant VIP Transfer", body: "Bring your status over from any other casino and keep your tier — no starting from zero." },
-  { n: "02", title: "Instant Withdrawals", body: "Cash out the moment you win. No holds, no waiting, no friction." },
-  { n: "03", title: "Up to 16% Lossback", body: "Get a serious chunk of your losses back, scaled to your play under code JOHNY." },
-  { n: "04", title: "125% Deposit Bonus", body: "Stack massive extra value on every deposit with one of the highest bonuses around." },
-  { n: "05", title: "VIP Milestones", body: "Hit VIP targets and unlock exclusive cash rewards built for the community." },
-  { n: "06", title: "$250 Weekly Leaderboard", body: "Compete every week for your share of the prize pool. Top players win big." },
-];
+const roulette = {
+  title: "Roulette",
+  intro: "A classic wheel-and-ball game where players wager on where a small ball will land among the numbered pockets.",
+  points: [
+    { h: "Objective", t: "Predict which pocket the ball settles into after the wheel spins — you win if any of your bets cover the result." },
+    { h: "Main Betting Options", t: "Inside bets cover single numbers or small groups (higher payouts, lower odds). Outside bets cover large groups like red/black, odd/even or dozens (lower payouts, better odds)." },
+    { h: "How a Round Works", t: "Place chips on the table before the dealer closes betting, the wheel spins, and the winning pocket is announced. Losing chips are cleared and winners are paid." },
+    { h: "Basic Rules", t: "European roulette uses a single-zero wheel (37 pockets) and is generally more player-friendly than American roulette, which adds a double-zero (38 pockets)." },
+    { h: "Example Gameplay", t: "You bet $5 on red and $1 straight-up on number 17. The ball lands on 17 black — you lose the red bet but win 35× on your straight-up for a $35 payout." },
+    { h: "Odds to Know", t: "European roulette has a house edge of about 2.7%. American roulette roughly doubles that at 5.26% due to the extra zero." },
+    { h: "Beginner Tips", t: "Stick to European wheels when available, favour outside bets while learning, set a session budget, and treat each spin as independent — past results don't influence future ones." },
+  ],
+};
 
-function Logo() {
+const blackjack = {
+  title: "Blackjack",
+  intro: "A card game played against the dealer where the goal is to build a hand closer to 21 than the dealer without going over.",
+  points: [
+    { h: "Objective", t: "Beat the dealer's hand — either by finishing closer to 21 than they do, or by letting them bust while you stay under." },
+    { h: "Card Values", t: "Number cards count as their face value, face cards count as 10, and an Ace counts as 1 or 11 depending on which helps your hand most." },
+    { h: "Dealer Rules", t: "The dealer follows a fixed script: they must draw on totals of 16 or less and stand on 17 or more (rules on soft 17 vary by table)." },
+    { h: "Player Actions", t: "Hit to take another card, Stand to keep your total, Double Down to double your bet and take one more card, or Split matching cards into two separate hands." },
+    { h: "Winning Conditions", t: "Beat the dealer's total without busting, or receive a natural blackjack (Ace + 10-value card) on your first two cards for a premium payout." },
+    { h: "House Edge", t: "With sensible basic strategy the house edge is typically under 1%, making blackjack one of the lowest-edge games on the casino floor." },
+    { h: "Beginner Tips", t: "Learn a basic strategy chart, never take insurance as a beginner, avoid splitting 10s and 5s, and always split Aces and 8s." },
+  ],
+};
+
+function Logo({ className = "" }: { className?: string }) {
   return (
-    <a href="#top" className="flex items-center gap-2.5">
-      <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground font-display text-lg font-bold shadow-[var(--shadow-glow)]">
-        Q
-      </span>
-      <span className="text-lg font-semibold tracking-tight">
-        Johny<span className="text-primary">Bravo</span>
-      </span>
-    </a>
+    <img
+      src={logoAsset.url}
+      alt="Johnny Bravo Rewards VIP Club"
+      className={className}
+      loading="eager"
+    />
   );
 }
 
-function Header() {
+function Header({ onJoin }: { onJoin: () => void }) {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/40 bg-background/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-        <Logo />
-        <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <a href="#perks" className="transition-colors hover:text-foreground">Perks</a>
-          <a href="#proof" className="transition-colors hover:text-foreground">Proof</a>
-        </nav>
-        <a
-          href={QZINO_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 hover:shadow-[var(--shadow-glow)]"
-        >
-          Join Now <ArrowRight className="h-4 w-4" />
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-border/40 bg-background/75 backdrop-blur-xl">
+      <div className="mx-auto grid h-16 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 sm:h-20 sm:px-8 md:grid-cols-3">
+        <a href="#top" className="flex min-w-0 items-center gap-3">
+          <Logo className="h-10 w-10 shrink-0 rounded-lg object-cover sm:h-12 sm:w-12" />
+          <div className="min-w-0 leading-tight">
+            <div className="truncate font-display text-base font-semibold tracking-wide sm:text-lg">
+              Johnny<span className="text-gold-gradient"> Bravo</span>
+            </div>
+            <div className="truncate text-[0.65rem] uppercase tracking-[0.22em] text-muted-foreground">
+              Rewards · VIP Club
+            </div>
+          </div>
         </a>
+        <nav className="hidden items-center justify-center gap-8 text-sm text-muted-foreground md:flex">
+          <a href="#rewards" className="transition-colors hover:text-foreground">Rewards</a>
+          <a href="#community" className="transition-colors hover:text-foreground">Community</a>
+          <a href="#learn" className="transition-colors hover:text-foreground">Learn</a>
+        </nav>
+        <div className="flex justify-end">
+          <button
+            onClick={onJoin}
+            className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:brightness-110 sm:px-5"
+          >
+            Join 1win <ArrowRight className="h-4 w-4" />
+          </button>
+        </div>
       </div>
     </header>
   );
 }
 
-function Hero() {
+function Hero({ onJoin }: { onJoin: () => void }) {
   return (
-    <section id="top" className="relative isolate flex min-h-screen items-center justify-center overflow-hidden pt-16">
-      <img
-        src={heroVault}
-        alt=""
-        width={1920}
-        height={1280}
-        className="absolute inset-0 -z-10 h-full w-full object-cover opacity-60"
-      />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+    <section id="top" className="relative isolate overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
       <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-radial)" }} />
-
-      <div className="mx-auto w-full max-w-5xl px-6 py-24 text-center">
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-primary">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_var(--primary)]" />
-          Welcome to Johny's Goblin
-        </span>
-
-        <h1 className="mt-8 font-display text-5xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-[5.5rem]">
-          Play Qzino under <br className="hidden sm:block" />
-          code <span className="italic text-primary">JOHNY</span>
-        </h1>
-
-        <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          I'm Johny Bravo. Sign up on Qzino with my code and unlock instant VIP transfer, up to 16% lossback,
-          deposit bonuses, VIP milestones and leaderboards built for our community.
-        </p>
-
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-          <a
-            href={QZINO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:brightness-110 hover:shadow-[var(--shadow-glow)]"
-          >
-            Sign up on Qzino <ArrowRight className="h-4 w-4" />
-          </a>
-          <a
-            href="#proof"
-            className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition-colors hover:border-primary/50 hover:text-primary"
-          >
-            See Proof of Wins
-          </a>
-        </div>
-
-        <div className="mx-auto mt-16 grid max-w-4xl grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
-          {stats.map((s) => (
-            <div
-              key={s.label}
-              className="rounded-2xl border border-border/60 bg-card/40 px-5 py-6 text-center backdrop-blur-sm transition-colors hover:border-primary/40"
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
+        <div className="text-center lg:text-left">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.2em] text-primary">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_var(--gold)]" />
+            Johnny Bravo · VIP Club
+          </span>
+          <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[4.25rem]">
+            Beyond Rewards. <br className="hidden sm:block" />
+            <span className="text-gold-gradient">Beyond Expectations.</span>
+          </h1>
+          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
+            A premium gaming experience built on service, trust and exceptional value.
+            Where exceptional service, trust and rewarding experiences create a new standard for every player.
+          </p>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+            <button
+              onClick={onJoin}
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:brightness-110"
             >
-              <div className="font-display text-3xl font-semibold text-primary sm:text-4xl">{s.value}</div>
-              <div className="mt-1 text-[0.7rem] font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                {s.label}
-              </div>
-            </div>
-          ))}
+              Join 1win <ArrowRight className="h-4 w-4" />
+            </button>
+            <a
+              href="#rewards"
+              className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition-colors hover:border-primary/50 hover:text-primary"
+            >
+              Explore Rewards
+            </a>
+          </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center gap-1 text-[0.7rem] uppercase tracking-[0.25em] text-muted-foreground/70">
-          Scroll
-          <ChevronDown className="h-4 w-4 animate-bounce" />
+        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+          <div className="absolute -inset-4 rounded-[2rem] bg-primary/10 blur-3xl" aria-hidden />
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-primary/25 bg-black shadow-[var(--shadow-card)]">
+            <img
+              src={bannerAsset.url}
+              alt="Johnny Bravo Rewards VIP Club"
+              className="h-full w-full object-cover"
+              width={1600}
+              height={900}
+            />
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function Proof() {
+function Rewards() {
   return (
-    <section id="proof" className="relative py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="rewards" className="relative border-y border-border/40 bg-surface py-24 sm:py-28">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">Real Receipts</span>
-          <h2 className="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">
-            Profit Proof Under <span className="italic text-primary">Code JOHNY</span>
+          <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">Member Benefits</span>
+          <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-5xl">
+            Everything members <span className="text-gold-gradient">enjoy</span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Screenshots don't lie. From bonus drops to withdrawal confirmations — Johny's Goblins are winning every day.
+            Join the club and unlock a curated set of rewards, perks and experiences designed to give every player
+            a genuine edge.
           </p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {proofs.map((p) => (
-            <figure
-              key={p.src}
-              className="group overflow-hidden rounded-2xl border border-border/60 bg-card/60 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-card)]"
-            >
-              <div className="relative aspect-[4/5] overflow-hidden bg-surface">
-                <img
-                  src={p.src}
-                  alt={p.caption}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <span className="absolute left-3 top-3 rounded-full border border-primary/30 bg-background/80 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-primary backdrop-blur">
-                  {p.tag}
-                </span>
-              </div>
-              <figcaption className="px-5 py-4 text-sm leading-snug text-muted-foreground">
-                {p.caption}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Perks() {
-  return (
-    <section id="perks" className="relative border-y border-border/40 bg-surface py-28">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">Qzino VIP</span>
-          <h2 className="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">
-            The full VIP experience, only under <span className="italic text-primary">code JOHNY</span>
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Qzino is a crypto casino with instant withdrawals, original games and one of the most rewarding VIP programs
-            in the space. Enter code JOHNY at signup to claim every perk below.
-          </p>
-        </div>
-
-        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-border/60 bg-border/60 sm:grid-cols-2 lg:grid-cols-3">
-          {perks.map((p) => (
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {rewards.map(({ icon: Icon, title, body }) => (
             <div
-              key={p.n}
-              className="group relative bg-surface-elevated p-8 transition-colors hover:bg-card"
+              key={title}
+              className="group relative rounded-2xl border border-border/60 bg-surface-elevated p-7 transition-all hover:-translate-y-1 hover:border-primary/40 hover:shadow-[var(--shadow-card)]"
             >
-              <div className="font-display text-sm font-semibold tracking-[0.2em] text-primary/70">{p.n}</div>
-              <h3 className="mt-4 font-display text-2xl font-semibold text-foreground">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-              <div className="pointer-events-none absolute inset-x-8 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-primary/60 to-transparent transition-transform duration-500 group-hover:scale-x-100" />
+              <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
+                <Icon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-5 font-display text-2xl font-semibold text-foreground">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
             </div>
           ))}
         </div>
@@ -222,27 +211,125 @@ function Perks() {
   );
 }
 
-function FinalCTA() {
+function QRSection({ onJoin }: { onJoin: () => void }) {
   return (
-    <section className="relative overflow-hidden py-32">
-      <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-radial)" }} />
-      <div className="mx-auto max-w-3xl px-6 text-center">
-        <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">Do you feel lucky?</span>
-        <h2 className="mt-5 font-display text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl">
-          Join thousands of Johny's Goblins on <span className="italic text-primary">Qzino.</span>
+    <section id="qr" className="relative py-24 sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        <div className="grid grid-cols-1 items-center gap-10 rounded-3xl border border-primary/25 bg-surface-elevated p-8 shadow-[var(--shadow-card)] sm:p-12 md:grid-cols-[auto_1fr] md:gap-14">
+          <div className="mx-auto rounded-2xl bg-white p-4 shadow-[var(--shadow-glow)]">
+            <img
+              src={qrAsset.url}
+              alt="Scan to join 1win with Johnny Bravo Rewards"
+              className="h-52 w-52 object-contain sm:h-60 sm:w-60"
+              width={512}
+              height={512}
+              loading="lazy"
+            />
+          </div>
+          <div className="text-center md:text-left">
+            <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">Fast Sign-Up</span>
+            <h2 className="mt-3 font-display text-3xl font-semibold leading-tight sm:text-4xl">
+              Scan · Sign up · <span className="text-gold-gradient">Start earning</span>
+            </h2>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+              Point your phone camera at the QR code to open 1win instantly and register through the official
+              Johnny Bravo Rewards link. Or tap the button below on desktop.
+            </p>
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-3 md:justify-start">
+              <button
+                onClick={onJoin}
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:brightness-110"
+              >
+                Join 1win <ArrowRight className="h-4 w-4" />
+              </button>
+              <a
+                href="#community"
+                className="inline-flex items-center gap-2 rounded-full border border-border/80 px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-primary/50 hover:text-primary"
+              >
+                Join Community
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Community() {
+  return (
+    <section id="community" className="relative border-y border-border/40 bg-surface py-24 sm:py-28">
+      <div className="mx-auto max-w-5xl px-5 text-center sm:px-8">
+        <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">Social Community</span>
+        <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-5xl">
+          Follow the <span className="text-gold-gradient">community</span>
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-          Sign up with code <span className="font-semibold text-foreground">JOHNY</span> and start claiming your VIP rewards from day one.
+        <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          Big wins, giveaways, guides and live sessions — connect with Johnny Bravo across every platform.
         </p>
-        <div className="mt-10">
-          <a
-            href={QZINO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-primary-foreground transition-all hover:brightness-110 hover:shadow-[var(--shadow-glow)]"
-          >
-            Sign up on Qzino <ArrowRight className="h-4 w-4" />
-          </a>
+
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {socials.map((s) => (
+            <a
+              key={s.name}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center gap-3 rounded-2xl border border-border/60 bg-surface-elevated p-6 transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-[var(--shadow-card)]"
+            >
+              <span className="grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden>
+                  <path d={s.path} />
+                </svg>
+              </span>
+              <span className="text-sm font-semibold text-foreground">{s.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LearnCard({ data }: { data: typeof roulette }) {
+  return (
+    <article className="rounded-3xl border border-border/60 bg-surface-elevated p-8 shadow-[var(--shadow-card)] sm:p-10">
+      <div className="flex items-center gap-3">
+        <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
+          <BookOpen className="h-5 w-5" />
+        </span>
+        <h3 className="font-display text-3xl font-semibold sm:text-4xl">{data.title}</h3>
+      </div>
+      <p className="mt-4 text-base leading-relaxed text-muted-foreground">{data.intro}</p>
+      <dl className="mt-6 space-y-5">
+        {data.points.map((p) => (
+          <div key={p.h}>
+            <dt className="font-display text-lg font-semibold text-foreground">{p.h}</dt>
+            <dd className="mt-1 text-sm leading-relaxed text-muted-foreground">{p.t}</dd>
+          </div>
+        ))}
+      </dl>
+    </article>
+  );
+}
+
+function Learn() {
+  return (
+    <section id="learn" className="relative py-24 sm:py-28">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">Beginner Friendly</span>
+          <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-5xl">
+            Learn the <span className="text-gold-gradient">Games</span>
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+            Simple, honest walkthroughs of two casino classics — no jargon, just what you need to feel confident
+            at the table.
+          </p>
+        </div>
+        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <LearnCard data={roulette} />
+          <LearnCard data={blackjack} />
         </div>
       </div>
     </section>
@@ -252,25 +339,95 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="border-t border-border/40 bg-background py-10">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-sm text-muted-foreground sm:flex-row">
-        <Logo />
-        <p>© {new Date().getFullYear()} JohnyBravo. Play responsibly. 18+</p>
+      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 text-sm text-muted-foreground sm:flex sm:flex-row sm:justify-between sm:px-8">
+        <div className="flex min-w-0 items-center gap-3">
+          <Logo className="h-9 w-9 shrink-0 rounded-md object-cover" />
+          <span className="truncate font-display text-base font-semibold text-foreground">Johnny Bravo Rewards</span>
+        </div>
+        <p className="text-right text-xs sm:text-sm">
+          © {new Date().getFullYear()} Johnny Bravo Rewards. Play responsibly. 18+
+        </p>
       </div>
     </footer>
   );
 }
 
-function Index() {
+function JoinModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Header />
-      <main>
-        <Hero />
-        <Proof />
-        <Perks />
-        <FinalCTA />
-      </main>
-      <Footer />
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-in fade-in"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="join-title"
+    >
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-md" onClick={onClose} />
+      <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-primary/30 bg-card p-8 shadow-[var(--shadow-glow)] animate-in zoom-in-95">
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full border border-border/60 text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
+          aria-label="Close"
+        >
+          <X className="h-4 w-4" />
+        </button>
+        <div className="text-center">
+          <Logo className="mx-auto h-16 w-16 rounded-xl object-cover" />
+          <h3 id="join-title" className="mt-5 font-display text-3xl font-semibold">
+            Join <span className="text-gold-gradient">Johnny Bravo</span> on 1win
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            You're one click away from unlocking weekly leaderboards, cashback, giveaways and VIP rewards.
+            Continue to sign up through our official affiliate link.
+          </p>
+          <a
+            href={AFFILIATE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onClose}
+            className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-base font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:brightness-110"
+          >
+            Continue to Sign Up <ArrowRight className="h-4 w-4" />
+          </a>
+          <p className="mt-4 text-[0.7rem] uppercase tracking-[0.2em] text-muted-foreground/70">
+            Secure · Official Affiliate Link · 18+
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
+
+function LandingPage() {
+  const [open, setOpen] = useState(false);
+  const join = () => setOpen(true);
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <Header onJoin={join} />
+      <main>
+        <Hero onJoin={join} />
+        <Rewards />
+        <QRSection onJoin={join} />
+        <Community />
+        <Learn />
+      </main>
+      <Footer />
+      <JoinModal open={open} onClose={() => setOpen(false)} />
+    </div>
+  );
+}
+
+// Community section anchors
+function _Users() { return <Users />; }
