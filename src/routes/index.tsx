@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, X, Trophy, Gift, Wallet, Crown, Sparkles, BookOpen, ShieldCheck } from "lucide-react";
-import logoAsset from "@/assets/logo.png.asset.json";
-import bannerAsset from "@/assets/banner.png.asset.json";
-import qrAsset from "@/assets/qr-1win.png.asset.json";
+const logoAsset = { url: "/logo.png" };
+const bannerAsset = { url: "/banner.png" };
+const qrAsset = { url: "/qr-1win.png" };
 
 export const Route = createFileRoute("/")({
   head: () => ({
