@@ -429,5 +429,3 @@ function LandingPage() {
   );
 }
 
-// Community section anchors
-function _Users() { return <Users />; }
