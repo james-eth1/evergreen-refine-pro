@@ -56,15 +56,15 @@ const socials = [
 
 const roulette = {
   title: "Roulette",
-  intro: "A classic wheel-and-ball game where players wager on where a small ball will land among the numbered pockets.",
+  intro: "A classic wheel and ball game where players wager on where a small ball will land among the numbered pockets.",
   points: [
-    { h: "Objective", t: "Predict which pocket the ball settles into after the wheel spins — you win if any of your bets cover the result." },
-    { h: "Main Betting Options", t: "Inside bets cover single numbers or small groups (higher payouts, lower odds). Outside bets cover large groups like red/black, odd/even or dozens (lower payouts, better odds)." },
+    { h: "Objective", t: "Predict which pocket the ball settles into after the wheel spins. You win if any of your bets cover the result." },
+    { h: "Main Betting Options", t: "Inside bets cover single numbers or small groups with higher payouts and lower odds. Outside bets cover large groups like red or black, odd or even, and dozens with lower payouts and better odds." },
     { h: "How a Round Works", t: "Place chips on the table before the dealer closes betting, the wheel spins, and the winning pocket is announced. Losing chips are cleared and winners are paid." },
-    { h: "Basic Rules", t: "European roulette uses a single-zero wheel (37 pockets) and is generally more player-friendly than American roulette, which adds a double-zero (38 pockets)." },
-    { h: "Example Gameplay", t: "You bet $5 on red and $1 straight-up on number 17. The ball lands on 17 black — you lose the red bet but win 35× on your straight-up for a $35 payout." },
-    { h: "Odds to Know", t: "European roulette has a house edge of about 2.7%. American roulette roughly doubles that at 5.26% due to the extra zero." },
-    { h: "Beginner Tips", t: "Stick to European wheels when available, favour outside bets while learning, set a session budget, and treat each spin as independent — past results don't influence future ones." },
+    { h: "Basic Rules", t: "European roulette uses a single zero wheel with 37 pockets and is generally more player friendly than American roulette, which adds a double zero for 38 pockets." },
+    { h: "Example Gameplay", t: "You bet $5 on red and $1 straight up on number 17. The ball lands on 17 black. You lose the red bet but win 35 times your straight up for a $35 payout." },
+    { h: "Odds to Know", t: "European roulette has a house edge of about 2.7 percent. American roulette roughly doubles that at 5.26 percent due to the extra zero." },
+    { h: "Beginner Tips", t: "Stick to European wheels when available, favour outside bets while learning, set a session budget, and treat each spin as independent. Past results do not influence future ones." },
   ],
 };
 
