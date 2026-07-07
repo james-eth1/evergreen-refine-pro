@@ -365,13 +365,15 @@ function Learn() {
             Learn the <span className="text-gold-gradient">Games</span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Simple, honest walkthroughs of two casino classics — no jargon, just what you need to feel confident
-            at the table.
+            Clear, honest walkthroughs of five casino classics. No jargon, just what you need to feel confident at the table.
           </p>
         </div>
         <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-2">
           <LearnCard data={roulette} />
           <LearnCard data={blackjack} />
+          <LearnCard data={baccarat} />
+          <LearnCard data={dice} />
+          <LearnCard data={slots} />
         </div>
       </div>
     </section>
