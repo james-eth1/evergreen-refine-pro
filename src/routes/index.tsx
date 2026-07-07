@@ -227,11 +227,10 @@ function Rewards() {
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">Member Benefits</span>
           <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-5xl">
-            Everything members <span className="text-gold-gradient">enjoy</span>
+            A Higher Standard of <span className="text-gold-gradient">Rewards.</span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Join the club and unlock a curated set of rewards, perks and experiences designed to give every player
-            a genuine edge.
+            Every benefit is designed to deliver exceptional value, outstanding service, and an experience that goes beyond expectations.
           </p>
         </div>
 
