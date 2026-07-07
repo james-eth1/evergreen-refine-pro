@@ -72,13 +72,57 @@ const blackjack = {
   title: "Blackjack",
   intro: "A card game played against the dealer where the goal is to build a hand closer to 21 than the dealer without going over.",
   points: [
-    { h: "Objective", t: "Beat the dealer's hand — either by finishing closer to 21 than they do, or by letting them bust while you stay under." },
+    { h: "Objective", t: "Beat the dealer's hand either by finishing closer to 21 than they do, or by letting them bust while you stay under." },
     { h: "Card Values", t: "Number cards count as their face value, face cards count as 10, and an Ace counts as 1 or 11 depending on which helps your hand most." },
-    { h: "Dealer Rules", t: "The dealer follows a fixed script: they must draw on totals of 16 or less and stand on 17 or more (rules on soft 17 vary by table)." },
+    { h: "Dealer Rules", t: "The dealer follows a fixed script. They must draw on totals of 16 or less and stand on 17 or more. Rules on soft 17 vary by table." },
     { h: "Player Actions", t: "Hit to take another card, Stand to keep your total, Double Down to double your bet and take one more card, or Split matching cards into two separate hands." },
-    { h: "Winning Conditions", t: "Beat the dealer's total without busting, or receive a natural blackjack (Ace + 10-value card) on your first two cards for a premium payout." },
-    { h: "House Edge", t: "With sensible basic strategy the house edge is typically under 1%, making blackjack one of the lowest-edge games on the casino floor." },
+    { h: "Winning Conditions", t: "Beat the dealer's total without busting, or receive a natural blackjack, an Ace with a 10 value card on your first two cards, for a premium payout." },
+    { h: "House Edge", t: "With sensible basic strategy the house edge is typically under 1 percent, making blackjack one of the lowest edge games on the casino floor." },
     { h: "Beginner Tips", t: "Learn a basic strategy chart, never take insurance as a beginner, avoid splitting 10s and 5s, and always split Aces and 8s." },
+  ],
+};
+
+const baccarat = {
+  title: "Baccarat",
+  intro: "A simple comparing card game between two hands, the Player and the Banker, where you bet on which hand will finish closest to a total of 9.",
+  points: [
+    { h: "Objective", t: "Wager on which hand, Player or Banker, will end the round closest to a total of 9, or bet that the two hands will tie." },
+    { h: "Card Values", t: "Aces count as 1, cards 2 through 9 keep their face value, and 10s and face cards count as 0. Only the last digit of the total counts, so a hand worth 15 is scored as 5." },
+    { h: "Banker and Player Bets", t: "The Banker bet wins slightly more often thanks to fixed drawing rules and usually pays even money with a small commission. The Player bet pays even money with no commission." },
+    { h: "Tie Bet", t: "The Tie bet pays out when both hands finish on the same total. It offers a large payout but carries a much higher house edge, so it is usually avoided by regular players." },
+    { h: "How a Round Works", t: "You place your bet, the dealer deals two cards to each hand, and fixed rules decide whether a third card is drawn. No decisions are needed once the round begins." },
+    { h: "Winning Conditions", t: "The hand you backed must finish with a total closest to 9. If you bet on Tie, both hands must end on the same total for you to win." },
+    { h: "House Edge Overview", t: "The Banker bet has a house edge of around 1.06 percent, the Player bet around 1.24 percent, and the Tie bet closer to 14 percent depending on payout." },
+    { h: "Beginner Strategy Tips", t: "Favour the Banker bet for its lower edge, skip the Tie bet, keep stakes flat rather than chasing streaks, and set a clear session budget before you start." },
+  ],
+};
+
+const dice = {
+  title: "Dice",
+  intro: "A fast paced game where players bet on the outcome of one or more dice rolls, with rules that stay simple even as the betting options grow.",
+  points: [
+    { h: "Basic Objective", t: "Predict the result of the next roll or series of rolls. Depending on the format you might back a specific number, a range, or an over or under result." },
+    { h: "How Dice Betting Works", t: "You choose a bet type, set your stake, and the dice are rolled. The payout depends on how likely your chosen outcome is to appear." },
+    { h: "Common Betting Options", t: "Popular bets include over or under a chosen number, exact totals, specific single numbers, and combined outcomes across two dice." },
+    { h: "Winning Conditions", t: "You win when the roll matches the outcome you backed. Losing bets are cleared and winning bets are paid at the odds shown before the roll." },
+    { h: "Odds Overview", t: "Simple even money bets sit near a 50 percent chance, while specific totals or single numbers pay far more but hit much less often." },
+    { h: "Example Gameplay", t: "You stake $2 on a roll being over 7 on two dice. The dice land on 5 and 4 for a total of 9, so the bet wins at even money and returns $2 in profit." },
+    { h: "Beginner Strategy Tips", t: "Start with simple even money bets, keep your stake small compared to your balance, avoid chasing losses, and step away when you hit a preset limit." },
+  ],
+};
+
+const slots = {
+  title: "Slot Machine",
+  intro: "The most popular casino format. Spin the reels and match symbols across paylines to trigger wins, bonus rounds and free spins.",
+  points: [
+    { h: "Objective", t: "Line up matching symbols across active paylines to trigger payouts, with larger combinations and bonus symbols delivering bigger rewards." },
+    { h: "How Slot Machines Work", t: "Each spin is decided by a random number generator, so every result is independent. There is no memory between spins and no way to predict the next outcome." },
+    { h: "Paylines and Symbols", t: "Paylines are the patterns across the reels that pay when matching symbols land in order. Some slots offer a handful of lines, others hundreds or thousands of ways to win." },
+    { h: "Bonus Features", t: "Modern slots include wilds that substitute for other symbols, scatters that trigger special rounds, multipliers that boost wins, and mini games layered on top of the base spin." },
+    { h: "Free Spins", t: "Free spin rounds are usually triggered by scatter symbols. They let you spin without spending your balance and often include extra multipliers or expanding wilds." },
+    { h: "RTP", t: "Return to Player is the long term percentage of stakes a slot pays back on average. A slot with 96 percent RTP returns about $96 for every $100 wagered across millions of spins." },
+    { h: "Volatility Explanation", t: "Low volatility slots pay smaller wins more often. High volatility slots pay less often but with much larger hits when they land. Pick a level that suits your bankroll and patience." },
+    { h: "Beginner Strategy Tips", t: "Choose slots with clear RTP figures above 95 percent, keep your stake small enough to survive a cold streak, use free spin features when offered, and set a stop point before you play." },
   ],
 };
 
