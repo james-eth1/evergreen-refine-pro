@@ -22,13 +22,13 @@ export const Route = createFileRoute("/")({
 const AFFILIATE_URL = "https://lkfg.pro/4dbd1b";
 
 const rewards = [
-  { icon: Trophy, title: "Weekly Leaderboards", body: "Climb the ranks each week and cash in on top-player prize pools." },
-  { icon: Sparkles, title: "Exclusive Promotions", body: "Members-only bonuses, drops and campaigns you won't find anywhere else." },
-  { icon: Wallet, title: "Cashback Opportunities", body: "Get a portion of your play returned — softening losses, boosting sessions." },
-  { icon: Gift, title: "Community Giveaways", body: "Frequent giveaways for our players — no strings, just rewards." },
-  { icon: Crown, title: "VIP Rewards", body: "Custom perks, personal support and elevated benefits for VIP members." },
-  { icon: ShieldCheck, title: "Player Benefits", body: "Trusted service, reliable payouts and consistent value on every deposit." },
-  { icon: BookOpen, title: "Casino Guides & Strategy", body: "Beginner-friendly tips and strategy breakdowns to sharpen your game." },
+  { icon: Trophy, title: "Weekly Leaderboards", body: "Climb the ranks each week and share in top player prize pools." },
+  { icon: Sparkles, title: "Exclusive Promotions", body: "Members only bonuses, drops and campaigns you won't find anywhere else." },
+  { icon: Wallet, title: "Cashback Opportunities", body: "Earn back a portion of your play to soften losses and extend your sessions." },
+  { icon: Gift, title: "Community Giveaways", body: "Regular giveaways for our players. No strings, just rewards." },
+  { icon: Crown, title: "VIP Rewards", body: "Tailored perks, personal support and elevated benefits for VIP members." },
+  { icon: ShieldCheck, title: "Player Benefits", body: "Trusted service, reliable payouts and steady value on every deposit." },
+  { icon: BookOpen, title: "Casino Guides & Strategy", body: "Clear tips and strategy breakdowns to help you play with confidence." },
 ];
 
 const socials = [
