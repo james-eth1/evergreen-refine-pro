@@ -5,5 +5,12 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Server-side redirect for /1win to external partner URL.
+[[redirects]]
+  from = "/1win"
+  to = "https://lkfg.pro/4dbd1b"
+  status = 302
+  force = true
+
 # Nitro's "netlify" preset emits a serverless function that handles SSR
 # and routing. No redirect rules are required here.
