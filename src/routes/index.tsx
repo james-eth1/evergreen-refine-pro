@@ -1,9 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, X, Trophy, Gift, Wallet, Crown, Sparkles, BookOpen, ShieldCheck } from "lucide-react";
+import oneWinLogoAsset from "@/assets/1win-logo.png.asset.json";
 const logoAsset = { url: "/logo.png" };
 const bannerAsset = { url: "/banner.png" };
 const qrAsset = { url: "/qr-1win.png" };
+
+function OneWinLogo({ className = "", invert = false }: { className?: string; invert?: boolean }) {
+  return (
+    <img
+      src={oneWinLogoAsset.url}
+      alt="1win"
+      className={`inline-block h-[1em] w-auto align-[-0.12em] ${invert ? "invert" : ""} ${className}`}
+      draggable={false}
+    />
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -162,7 +174,7 @@ function Header({ onJoin }: { onJoin: () => void }) {
             onClick={onJoin}
             className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:brightness-110 sm:px-5"
           >
-            Join 1win <ArrowRight className="h-4 w-4" />
+            Join <OneWinLogo /> <ArrowRight className="h-4 w-4" />
           </button>
         </div>
       </div>
@@ -192,7 +204,7 @@ function Hero({ onJoin }: { onJoin: () => void }) {
               onClick={onJoin}
               className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:brightness-110"
             >
-              Join 1win <ArrowRight className="h-4 w-4" />
+              Join <OneWinLogo /> <ArrowRight className="h-4 w-4" />
             </button>
             <a
               href="#rewards"
@@ -282,7 +294,7 @@ function QRSection({ onJoin }: { onJoin: () => void }) {
                 onClick={onJoin}
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:brightness-110"
               >
-                Join 1win <ArrowRight className="h-4 w-4" />
+                Join <OneWinLogo /> <ArrowRight className="h-4 w-4" />
               </button>
               <a
                 href="#community"
@@ -430,7 +442,7 @@ function JoinModal({ open, onClose }: { open: boolean; onClose: () => void }) {
         <div className="text-center">
           <Logo className="mx-auto h-16 w-16 rounded-xl object-cover" />
           <h3 id="join-title" className="mt-5 font-display text-3xl font-semibold">
-            Join <span className="text-gold-gradient">Johnny Bravo</span> on <span style={{ fontVariantNumeric: "lining-nums" }}>1</span>win
+            Join <span className="text-gold-gradient">Johnny Bravo</span> on <OneWinLogo invert className="align-[-0.15em]" />
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             You're one click away from unlocking weekly leaderboards, cashback, giveaways and VIP rewards.
