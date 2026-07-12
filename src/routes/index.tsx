@@ -1,9 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowRight, X, Trophy, Gift, Wallet, Crown, Sparkles, BookOpen, ShieldCheck } from "lucide-react";
+import oneWinLogoAsset from "@/assets/1win-logo.png.asset.json";
 const logoAsset = { url: "/logo.png" };
 const bannerAsset = { url: "/banner.png" };
 const qrAsset = { url: "/qr-1win.png" };
+
+function OneWinLogo({ className = "", invert = false }: { className?: string; invert?: boolean }) {
+  return (
+    <img
+      src={oneWinLogoAsset.url}
+      alt="1win"
+      className={`inline-block h-[1em] w-auto align-[-0.12em] ${invert ? "invert" : ""} ${className}`}
+      draggable={false}
+    />
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
