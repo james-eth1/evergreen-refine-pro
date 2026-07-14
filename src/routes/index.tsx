@@ -1,6 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowRight, X, Trophy, Gift, Wallet, Crown, Sparkles, BookOpen, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  X,
+  Trophy,
+  Gift,
+  Wallet,
+  Crown,
+  Sparkles,
+  BookOpen,
+  ShieldCheck,
+} from "lucide-react";
 const oneWinLogoAsset = { url: "/1win-logo.png" };
 const logoAsset = { url: "/logo.png" };
 const bannerAsset = { url: "/banner.png" };
@@ -21,9 +31,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Johnny Bravo Rewards | Beyond Rewards. Beyond Expectations." },
-      { name: "description", content: "Johnny Bravo Rewards on 1win. Bi-weekly leaderboards, cashback, giveaways and VIP benefits designed to deliver exceptional value." },
+      {
+        name: "description",
+        content:
+          "Johnny Bravo Rewards on 1win. Bi-weekly leaderboards, cashback, giveaways and VIP benefits designed to deliver exceptional value.",
+      },
       { property: "og:title", content: "Johnny Bravo Rewards" },
-      { property: "og:description", content: "Bi-weekly leaderboards, exclusive promotions, cashback, VIP rewards and more." },
+      {
+        property: "og:description",
+        content: "Bi-weekly leaderboards, exclusive promotions, cashback, VIP rewards and more.",
+      },
       { property: "og:image", content: bannerAsset.url },
       { name: "twitter:image", content: bannerAsset.url },
     ],
@@ -34,13 +51,41 @@ export const Route = createFileRoute("/")({
 const AFFILIATE_URL = "https://lkfg.pro/4dbd1b";
 
 const rewards = [
-  { icon: Trophy, title: "Bi-weekly Leaderboards", body: "Climb the ranks every two weeks and compete for up to $500 in cash prizes." },
-  { icon: Sparkles, title: "Exclusive Promotions", body: "Members only bonuses, drops and campaigns you won't find anywhere else." },
-  { icon: Wallet, title: "Cashback Opportunities", body: "Earn back a portion of your play to soften losses and extend your sessions." },
-  { icon: Gift, title: "Community Giveaways", body: "Regular giveaways for our players. No strings, just rewards." },
-  { icon: Crown, title: "VIP Rewards", body: "Tailored perks, personal support and elevated benefits for VIP members." },
-  { icon: ShieldCheck, title: "Player Benefits", body: "Trusted service, reliable payouts and steady value on every deposit." },
-  { icon: BookOpen, title: "Casino Guides & Strategy", body: "Clear tips and strategy breakdowns to help you play with confidence." },
+  {
+    icon: Trophy,
+    title: "Bi-weekly Leaderboards",
+    body: "Climb the ranks every two weeks and compete for up to $500 in cash prizes.",
+  },
+  {
+    icon: Sparkles,
+    title: "Exclusive Promotions",
+    body: "Members only bonuses, drops and campaigns you won't find anywhere else.",
+  },
+  {
+    icon: Wallet,
+    title: "Cashback Opportunities",
+    body: "Earn back a portion of your play to soften losses and extend your sessions.",
+  },
+  {
+    icon: Gift,
+    title: "Community Giveaways",
+    body: "Regular giveaways for our players. No strings, just rewards.",
+  },
+  {
+    icon: Crown,
+    title: "VIP Rewards",
+    body: "Tailored perks, personal support and elevated benefits for VIP members.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Player Benefits",
+    body: "Trusted service, reliable payouts and steady value on every deposit.",
+  },
+  {
+    icon: BookOpen,
+    title: "Casino Guides & Strategy",
+    body: "Clear tips and strategy breakdowns to help you play with confidence.",
+  },
 ];
 
 const socials = [
@@ -68,73 +113,189 @@ const socials = [
 
 const roulette = {
   title: "Roulette",
-  intro: "A classic wheel and ball game where players wager on where a small ball will land among the numbered pockets.",
+  intro:
+    "A classic wheel and ball game where players wager on where a small ball will land among the numbered pockets.",
   points: [
-    { h: "Objective", t: "Predict which pocket the ball settles into after the wheel spins. You win if any of your bets cover the result." },
-    { h: "Main Betting Options", t: "Inside bets cover single numbers or small groups with higher payouts and lower odds. Outside bets cover large groups like red or black, odd or even, and dozens with lower payouts and better odds." },
-    { h: "How a Round Works", t: "Place chips on the table before the dealer closes betting, the wheel spins, and the winning pocket is announced. Losing chips are cleared and winners are paid." },
-    { h: "Basic Rules", t: "European roulette uses a single zero wheel with 37 pockets and is generally more player friendly than American roulette, which adds a double zero for 38 pockets." },
-    { h: "Example Gameplay", t: "You bet $5 on red and $1 straight up on number 17. The ball lands on 17 black. You lose the red bet but win 35 times your straight up for a $35 payout." },
-    { h: "Odds to Know", t: "European roulette has a house edge of about 2.7 percent. American roulette roughly doubles that at 5.26 percent due to the extra zero." },
-    { h: "Beginner Tips", t: "Stick to European wheels when available, favour outside bets while learning, set a session budget, and treat each spin as independent. Past results do not influence future ones." },
+    {
+      h: "Objective",
+      t: "Predict which pocket the ball settles into after the wheel spins. You win if any of your bets cover the result.",
+    },
+    {
+      h: "Main Betting Options",
+      t: "Inside bets cover single numbers or small groups with higher payouts and lower odds. Outside bets cover large groups like red or black, odd or even, and dozens with lower payouts and better odds.",
+    },
+    {
+      h: "How a Round Works",
+      t: "Place chips on the table before the dealer closes betting, the wheel spins, and the winning pocket is announced. Losing chips are cleared and winners are paid.",
+    },
+    {
+      h: "Basic Rules",
+      t: "European roulette uses a single zero wheel with 37 pockets and is generally more player friendly than American roulette, which adds a double zero for 38 pockets.",
+    },
+    {
+      h: "Example Gameplay",
+      t: "You bet $5 on red and $1 straight up on number 17. The ball lands on 17 black. You lose the red bet but win 35 times your straight up for a $35 payout.",
+    },
+    {
+      h: "Odds to Know",
+      t: "European roulette has a house edge of about 2.7 percent. American roulette roughly doubles that at 5.26 percent due to the extra zero.",
+    },
+    {
+      h: "Beginner Tips",
+      t: "Stick to European wheels when available, favour outside bets while learning, set a session budget, and treat each spin as independent. Past results do not influence future ones.",
+    },
   ],
 };
 
 const blackjack = {
   title: "Blackjack",
-  intro: "A card game played against the dealer where the goal is to build a hand closer to 21 than the dealer without going over.",
+  intro:
+    "A card game played against the dealer where the goal is to build a hand closer to 21 than the dealer without going over.",
   points: [
-    { h: "Objective", t: "Beat the dealer's hand either by finishing closer to 21 than they do, or by letting them bust while you stay under." },
-    { h: "Card Values", t: "Number cards count as their face value, face cards count as 10, and an Ace counts as 1 or 11 depending on which helps your hand most." },
-    { h: "Dealer Rules", t: "The dealer follows a fixed script. They must draw on totals of 16 or less and stand on 17 or more. Rules on soft 17 vary by table." },
-    { h: "Player Actions", t: "Hit to take another card, Stand to keep your total, Double Down to double your bet and take one more card, or Split matching cards into two separate hands." },
-    { h: "Winning Conditions", t: "Beat the dealer's total without busting, or receive a natural blackjack, an Ace with a 10 value card on your first two cards, for a premium payout." },
-    { h: "House Edge", t: "With sensible basic strategy the house edge is typically under 1 percent, making blackjack one of the lowest edge games on the casino floor." },
-    { h: "Beginner Tips", t: "Learn a basic strategy chart, never take insurance as a beginner, avoid splitting 10s and 5s, and always split Aces and 8s." },
+    {
+      h: "Objective",
+      t: "Beat the dealer's hand either by finishing closer to 21 than they do, or by letting them bust while you stay under.",
+    },
+    {
+      h: "Card Values",
+      t: "Number cards count as their face value, face cards count as 10, and an Ace counts as 1 or 11 depending on which helps your hand most.",
+    },
+    {
+      h: "Dealer Rules",
+      t: "The dealer follows a fixed script. They must draw on totals of 16 or less and stand on 17 or more. Rules on soft 17 vary by table.",
+    },
+    {
+      h: "Player Actions",
+      t: "Hit to take another card, Stand to keep your total, Double Down to double your bet and take one more card, or Split matching cards into two separate hands.",
+    },
+    {
+      h: "Winning Conditions",
+      t: "Beat the dealer's total without busting, or receive a natural blackjack, an Ace with a 10 value card on your first two cards, for a premium payout.",
+    },
+    {
+      h: "House Edge",
+      t: "With sensible basic strategy the house edge is typically under 1 percent, making blackjack one of the lowest edge games on the casino floor.",
+    },
+    {
+      h: "Beginner Tips",
+      t: "Learn a basic strategy chart, never take insurance as a beginner, avoid splitting 10s and 5s, and always split Aces and 8s.",
+    },
   ],
 };
 
 const baccarat = {
   title: "Baccarat",
-  intro: "A simple comparing card game between two hands, the Player and the Banker, where you bet on which hand will finish closest to a total of 9.",
+  intro:
+    "A simple comparing card game between two hands, the Player and the Banker, where you bet on which hand will finish closest to a total of 9.",
   points: [
-    { h: "Objective", t: "Wager on which hand, Player or Banker, will end the round closest to a total of 9, or bet that the two hands will tie." },
-    { h: "Card Values", t: "Aces count as 1, cards 2 through 9 keep their face value, and 10s and face cards count as 0. Only the last digit of the total counts, so a hand worth 15 is scored as 5." },
-    { h: "Banker and Player Bets", t: "The Banker bet wins slightly more often thanks to fixed drawing rules and usually pays even money with a small commission. The Player bet pays even money with no commission." },
-    { h: "Tie Bet", t: "The Tie bet pays out when both hands finish on the same total. It offers a large payout but carries a much higher house edge, so it is usually avoided by regular players." },
-    { h: "How a Round Works", t: "You place your bet, the dealer deals two cards to each hand, and fixed rules decide whether a third card is drawn. No decisions are needed once the round begins." },
-    { h: "Winning Conditions", t: "The hand you backed must finish with a total closest to 9. If you bet on Tie, both hands must end on the same total for you to win." },
-    { h: "House Edge Overview", t: "The Banker bet has a house edge of around 1.06 percent, the Player bet around 1.24 percent, and the Tie bet closer to 14 percent depending on payout." },
-    { h: "Beginner Strategy Tips", t: "Favour the Banker bet for its lower edge, skip the Tie bet, keep stakes flat rather than chasing streaks, and set a clear session budget before you start." },
+    {
+      h: "Objective",
+      t: "Wager on which hand, Player or Banker, will end the round closest to a total of 9, or bet that the two hands will tie.",
+    },
+    {
+      h: "Card Values",
+      t: "Aces count as 1, cards 2 through 9 keep their face value, and 10s and face cards count as 0. Only the last digit of the total counts, so a hand worth 15 is scored as 5.",
+    },
+    {
+      h: "Banker and Player Bets",
+      t: "The Banker bet wins slightly more often thanks to fixed drawing rules and usually pays even money with a small commission. The Player bet pays even money with no commission.",
+    },
+    {
+      h: "Tie Bet",
+      t: "The Tie bet pays out when both hands finish on the same total. It offers a large payout but carries a much higher house edge, so it is usually avoided by regular players.",
+    },
+    {
+      h: "How a Round Works",
+      t: "You place your bet, the dealer deals two cards to each hand, and fixed rules decide whether a third card is drawn. No decisions are needed once the round begins.",
+    },
+    {
+      h: "Winning Conditions",
+      t: "The hand you backed must finish with a total closest to 9. If you bet on Tie, both hands must end on the same total for you to win.",
+    },
+    {
+      h: "House Edge Overview",
+      t: "The Banker bet has a house edge of around 1.06 percent, the Player bet around 1.24 percent, and the Tie bet closer to 14 percent depending on payout.",
+    },
+    {
+      h: "Beginner Strategy Tips",
+      t: "Favour the Banker bet for its lower edge, skip the Tie bet, keep stakes flat rather than chasing streaks, and set a clear session budget before you start.",
+    },
   ],
 };
 
 const dice = {
   title: "Dice",
-  intro: "A fast paced game where players bet on the outcome of one or more dice rolls, with rules that stay simple even as the betting options grow.",
+  intro:
+    "A fast paced game where players bet on the outcome of one or more dice rolls, with rules that stay simple even as the betting options grow.",
   points: [
-    { h: "Basic Objective", t: "Predict the result of the next roll or series of rolls. Depending on the format you might back a specific number, a range, or an over or under result." },
-    { h: "How Dice Betting Works", t: "You choose a bet type, set your stake, and the dice are rolled. The payout depends on how likely your chosen outcome is to appear." },
-    { h: "Common Betting Options", t: "Popular bets include over or under a chosen number, exact totals, specific single numbers, and combined outcomes across two dice." },
-    { h: "Winning Conditions", t: "You win when the roll matches the outcome you backed. Losing bets are cleared and winning bets are paid at the odds shown before the roll." },
-    { h: "Odds Overview", t: "Simple even money bets sit near a 50 percent chance, while specific totals or single numbers pay far more but hit much less often." },
-    { h: "Example Gameplay", t: "You stake $2 on a roll being over 7 on two dice. The dice land on 5 and 4 for a total of 9, so the bet wins at even money and returns $2 in profit." },
-    { h: "Beginner Strategy Tips", t: "Start with simple even money bets, keep your stake small compared to your balance, avoid chasing losses, and step away when you hit a preset limit." },
+    {
+      h: "Basic Objective",
+      t: "Predict the result of the next roll or series of rolls. Depending on the format you might back a specific number, a range, or an over or under result.",
+    },
+    {
+      h: "How Dice Betting Works",
+      t: "You choose a bet type, set your stake, and the dice are rolled. The payout depends on how likely your chosen outcome is to appear.",
+    },
+    {
+      h: "Common Betting Options",
+      t: "Popular bets include over or under a chosen number, exact totals, specific single numbers, and combined outcomes across two dice.",
+    },
+    {
+      h: "Winning Conditions",
+      t: "You win when the roll matches the outcome you backed. Losing bets are cleared and winning bets are paid at the odds shown before the roll.",
+    },
+    {
+      h: "Odds Overview",
+      t: "Simple even money bets sit near a 50 percent chance, while specific totals or single numbers pay far more but hit much less often.",
+    },
+    {
+      h: "Example Gameplay",
+      t: "You stake $2 on a roll being over 7 on two dice. The dice land on 5 and 4 for a total of 9, so the bet wins at even money and returns $2 in profit.",
+    },
+    {
+      h: "Beginner Strategy Tips",
+      t: "Start with simple even money bets, keep your stake small compared to your balance, avoid chasing losses, and step away when you hit a preset limit.",
+    },
   ],
 };
 
 const slots = {
   title: "Slot Machine",
-  intro: "The most popular casino format. Spin the reels and match symbols across paylines to trigger wins, bonus rounds and free spins.",
+  intro:
+    "The most popular casino format. Spin the reels and match symbols across paylines to trigger wins, bonus rounds and free spins.",
   points: [
-    { h: "Objective", t: "Line up matching symbols across active paylines to trigger payouts, with larger combinations and bonus symbols delivering bigger rewards." },
-    { h: "How Slot Machines Work", t: "Each spin is decided by a random number generator, so every result is independent. There is no memory between spins and no way to predict the next outcome." },
-    { h: "Paylines and Symbols", t: "Paylines are the patterns across the reels that pay when matching symbols land in order. Some slots offer a handful of lines, others hundreds or thousands of ways to win." },
-    { h: "Bonus Features", t: "Modern slots include wilds that substitute for other symbols, scatters that trigger special rounds, multipliers that boost wins, and mini games layered on top of the base spin." },
-    { h: "Free Spins", t: "Free spin rounds are usually triggered by scatter symbols. They let you spin without spending your balance and often include extra multipliers or expanding wilds." },
-    { h: "RTP", t: "Return to Player is the long term percentage of stakes a slot pays back on average. A slot with 96 percent RTP returns about $96 for every $100 wagered across millions of spins." },
-    { h: "Volatility Explanation", t: "Low volatility slots pay smaller wins more often. High volatility slots pay less often but with much larger hits when they land. Pick a level that suits your bankroll and patience." },
-    { h: "Beginner Strategy Tips", t: "Choose slots with clear RTP figures above 95 percent, keep your stake small enough to survive a cold streak, use free spin features when offered, and set a stop point before you play." },
+    {
+      h: "Objective",
+      t: "Line up matching symbols across active paylines to trigger payouts, with larger combinations and bonus symbols delivering bigger rewards.",
+    },
+    {
+      h: "How Slot Machines Work",
+      t: "Each spin is decided by a random number generator, so every result is independent. There is no memory between spins and no way to predict the next outcome.",
+    },
+    {
+      h: "Paylines and Symbols",
+      t: "Paylines are the patterns across the reels that pay when matching symbols land in order. Some slots offer a handful of lines, others hundreds or thousands of ways to win.",
+    },
+    {
+      h: "Bonus Features",
+      t: "Modern slots include wilds that substitute for other symbols, scatters that trigger special rounds, multipliers that boost wins, and mini games layered on top of the base spin.",
+    },
+    {
+      h: "Free Spins",
+      t: "Free spin rounds are usually triggered by scatter symbols. They let you spin without spending your balance and often include extra multipliers or expanding wilds.",
+    },
+    {
+      h: "RTP",
+      t: "Return to Player is the long term percentage of stakes a slot pays back on average. A slot with 96 percent RTP returns about $96 for every $100 wagered across millions of spins.",
+    },
+    {
+      h: "Volatility Explanation",
+      t: "Low volatility slots pay smaller wins more often. High volatility slots pay less often but with much larger hits when they land. Pick a level that suits your bankroll and patience.",
+    },
+    {
+      h: "Beginner Strategy Tips",
+      t: "Choose slots with clear RTP figures above 95 percent, keep your stake small enough to survive a cold streak, use free spin features when offered, and set a stop point before you play.",
+    },
   ],
 };
 
@@ -165,9 +326,15 @@ function Header({ onJoin }: { onJoin: () => void }) {
           </div>
         </a>
         <nav className="hidden items-center justify-center gap-8 text-sm text-muted-foreground md:flex">
-          <a href="#rewards" className="transition-colors hover:text-foreground">Rewards</a>
-          <a href="#community" className="transition-colors hover:text-foreground">Community</a>
-          <a href="#learn" className="transition-colors hover:text-foreground">Learn</a>
+          <a href="#rewards" className="transition-colors hover:text-foreground">
+            Rewards
+          </a>
+          <a href="#community" className="transition-colors hover:text-foreground">
+            Community
+          </a>
+          <a href="#learn" className="transition-colors hover:text-foreground">
+            Learn
+          </a>
         </nav>
         <div className="flex justify-end">
           <button
@@ -197,7 +364,8 @@ function Hero({ onJoin }: { onJoin: () => void }) {
             <span className="text-gold-gradient">Beyond Expectations.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
-            Where exceptional service, trust and rewarding experience create a new standard for every player.
+            Where exceptional service, trust and rewarding experience create a new standard for
+            every player.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
             <button
@@ -237,12 +405,15 @@ function Rewards() {
     <section id="rewards" className="relative border-y border-border/40 bg-surface py-24 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">Member Benefits</span>
+          <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">
+            Member Benefits
+          </span>
           <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-5xl">
             A Higher Standard of <span className="text-gold-gradient">Rewards.</span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Every benefit is designed to deliver exceptional value, outstanding service, and an experience that goes beyond expectations.
+            Every benefit is designed to deliver exceptional value, outstanding service, and an
+            experience that goes beyond expectations.
           </p>
         </div>
 
@@ -291,13 +462,15 @@ function QRSection({ onJoin }: { onJoin: () => void }) {
             />
           </div>
           <div className="text-center md:text-left">
-            <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">Fast Sign-Up</span>
+            <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">
+              Fast Sign-Up
+            </span>
             <h2 className="mt-3 font-display text-3xl font-semibold leading-tight sm:text-4xl">
               Scan · Sign up · <span className="text-gold-gradient">Start earning</span>
             </h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-              Point your phone camera at the QR code to open 1win instantly and register through the official
-              Johnny Bravo Rewards link. Or tap the button below on desktop.
+              Point your phone camera at the QR code to open 1win instantly and register through the
+              official Johnny Bravo Rewards link. Or tap the button below on desktop.
             </p>
             <div className="mt-7 flex flex-wrap items-center justify-center gap-3 md:justify-start">
               <button
@@ -322,14 +495,20 @@ function QRSection({ onJoin }: { onJoin: () => void }) {
 
 function Community() {
   return (
-    <section id="community" className="relative border-y border-border/40 bg-surface py-24 sm:py-28">
+    <section
+      id="community"
+      className="relative border-y border-border/40 bg-surface py-24 sm:py-28"
+    >
       <div className="mx-auto max-w-5xl px-5 text-center sm:px-8">
-        <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">Social Community</span>
+        <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">
+          Social Community
+        </span>
         <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-5xl">
           Follow the <span className="text-gold-gradient">community</span>
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          Big wins, giveaways, guides and live sessions. Connect with Johnny Bravo across every platform.
+          Big wins, giveaways, guides and live sessions. Connect with Johnny Bravo across every
+          platform.
         </p>
 
         <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -382,12 +561,15 @@ function Learn() {
     <section id="learn" className="relative py-24 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">Beginner Friendly</span>
+          <span className="text-xs font-medium uppercase tracking-[0.22em] text-primary">
+            Beginner Friendly
+          </span>
           <h2 className="mt-4 font-display text-3xl font-semibold leading-tight sm:text-5xl">
             Learn the <span className="text-gold-gradient">Games</span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Clear, honest walkthroughs of five casino classics. No jargon, just what you need to feel confident at the table.
+            Clear, honest walkthroughs of five casino classics. No jargon, just what you need to
+            feel confident at the table.
           </p>
         </div>
         <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -408,7 +590,9 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 text-sm text-muted-foreground sm:flex sm:flex-row sm:justify-between sm:px-8">
         <div className="flex min-w-0 items-center gap-3">
           <Logo className="h-9 w-9 shrink-0 rounded-md object-cover" />
-          <span className="truncate font-display text-base font-semibold text-foreground">Johnny Bravo Rewards</span>
+          <span className="truncate font-display text-base font-semibold text-foreground">
+            Johnny Bravo Rewards
+          </span>
         </div>
         <p className="text-right text-xs sm:text-sm">
           © {new Date().getFullYear()} Johnny Bravo Rewards. Play responsibly. 18+
@@ -452,11 +636,12 @@ function JoinModal({ open, onClose }: { open: boolean; onClose: () => void }) {
         <div className="text-center">
           <Logo className="mx-auto h-16 w-16 rounded-xl object-cover" />
           <h3 id="join-title" className="mt-5 font-display text-3xl font-semibold">
-            Join <span className="text-gold-gradient">Johnny Bravo</span> on <OneWinLogo invert className="align-[-0.15em]" />
+            Join <span className="text-gold-gradient">Johnny Bravo</span> on{" "}
+            <OneWinLogo invert className="align-[-0.15em]" />
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            You're one click away from unlocking Bi-weekly leaderboards, cashback, giveaways and VIP rewards.
-            Continue to sign up through our official affiliate link.
+            You're one click away from unlocking Bi-weekly leaderboards, cashback, giveaways and VIP
+            rewards. Continue to sign up through our official affiliate link.
           </p>
           <a
             href={AFFILIATE_URL}
@@ -494,4 +679,3 @@ function LandingPage() {
     </div>
   );
 }
-

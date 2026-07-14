@@ -78,10 +78,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Johnny Bravo Rewards — Beyond Rewards. Beyond Expectations." },
-      { name: "description", content: "Join Johnny Bravo Rewards on 1win. Bi-weekly leaderboards, exclusive promotions, cashback, VIP rewards and a trusted community for every player." },
+      {
+        name: "description",
+        content:
+          "Join Johnny Bravo Rewards on 1win. Bi-weekly leaderboards, exclusive promotions, cashback, VIP rewards and a trusted community for every player.",
+      },
       { name: "author", content: "Johnny Bravo Rewards" },
-      { property: "og:title", content: "Johnny Bravo Rewards — Beyond Rewards. Beyond Expectations." },
-      { property: "og:description", content: "A premium gaming experience built on service, trust and exceptional value. Join through code JOHNY on 1win." },
+      {
+        property: "og:title",
+        content: "Johnny Bravo Rewards — Beyond Rewards. Beyond Expectations.",
+      },
+      {
+        property: "og:description",
+        content:
+          "A premium gaming experience built on service, trust and exceptional value. Join through code JOHNY on 1win.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
