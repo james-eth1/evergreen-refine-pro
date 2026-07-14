@@ -21,9 +21,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Johnny Bravo Rewards | Beyond Rewards. Beyond Expectations." },
-      { name: "description", content: "Johnny Bravo Rewards on 1win. Weekly leaderboards, cashback, giveaways and VIP benefits designed to deliver exceptional value." },
+      { name: "description", content: "Johnny Bravo Rewards on 1win. Bi-weekly leaderboards, cashback, giveaways and VIP benefits designed to deliver exceptional value." },
       { property: "og:title", content: "Johnny Bravo Rewards" },
-      { property: "og:description", content: "Weekly leaderboards, exclusive promotions, cashback, VIP rewards and more." },
+      { property: "og:description", content: "Bi-weekly leaderboards, exclusive promotions, cashback, VIP rewards and more." },
       { property: "og:image", content: bannerAsset.url },
       { name: "twitter:image", content: bannerAsset.url },
     ],
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/")({
 const AFFILIATE_URL = "https://lkfg.pro/4dbd1b";
 
 const rewards = [
-  { icon: Trophy, title: "Weekly Leaderboards", body: "Climb the ranks each week and share in top player prize pools." },
+  { icon: Trophy, title: "Bi-weekly Leaderboards", body: "Climb the ranks every two weeks and compete for up to $500 in cash prizes." },
   { icon: Sparkles, title: "Exclusive Promotions", body: "Members only bonuses, drops and campaigns you won't find anywhere else." },
   { icon: Wallet, title: "Cashback Opportunities", body: "Earn back a portion of your play to soften losses and extend your sessions." },
   { icon: Gift, title: "Community Giveaways", body: "Regular giveaways for our players. No strings, just rewards." },
@@ -257,6 +257,16 @@ function Rewards() {
               </div>
               <h3 className="mt-5 font-display text-2xl font-semibold text-foreground">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              {title === "Bi-weekly Leaderboards" && (
+                <a
+                  href="https://one-vv9927.com/v3/7865/streamer-leaderboard-johnny-bravo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:brightness-110"
+                >
+                  View Leaderboard <ArrowRight className="h-4 w-4" />
+                </a>
+              )}
             </div>
           ))}
         </div>
@@ -445,7 +455,7 @@ function JoinModal({ open, onClose }: { open: boolean; onClose: () => void }) {
             Join <span className="text-gold-gradient">Johnny Bravo</span> on <OneWinLogo invert className="align-[-0.15em]" />
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            You're one click away from unlocking weekly leaderboards, cashback, giveaways and VIP rewards.
+            You're one click away from unlocking Bi-weekly leaderboards, cashback, giveaways and VIP rewards.
             Continue to sign up through our official affiliate link.
           </p>
           <a
