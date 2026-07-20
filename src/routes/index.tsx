@@ -48,7 +48,7 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const AFFILIATE_URL = "https://lkfg.pro/4dbd1b";
+const AFFILIATE_URL = "https://r1wttde.life/?open=register&p=auec";
 
 const rewards = [
   {
