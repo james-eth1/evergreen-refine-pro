@@ -48,7 +48,7 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const AFFILIATE_URL = "https://r1wttde.life/?open=register&p=auec";
+const AFFILIATE_URL = "https://1win-johnyybravooo.com";
 
 const rewards = [
   {
@@ -96,7 +96,7 @@ const socials = [
   },
   {
     name: "TikTok",
-    href: "https://www.tiktok.com/@jbrewards",
+    href: "https://www.tiktok.com/@jbrewards.vip1?_r=1&_t=ZS-98bMFl3xAiD",
     path: "M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9.01a8.16 8.16 0 0 0 4.77 1.52V7.08a4.79 4.79 0 0 1-1.84-.39Z",
   },
   {
