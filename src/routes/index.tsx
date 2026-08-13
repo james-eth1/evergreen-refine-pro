@@ -524,7 +524,7 @@ function Community() {
           platform.
         </p>
 
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-5">
           {socials.map((s) => (
             <a
               key={s.name}
