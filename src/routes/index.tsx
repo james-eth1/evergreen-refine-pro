@@ -394,6 +394,19 @@ function Hero({ onJoin }: { onJoin: () => void }) {
               Explore Rewards
             </a>
           </div>
+          <div className="mt-4 flex items-center justify-center gap-2 lg:justify-start">
+            <a
+              href="https://kick.com/johnny-bravooo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-card/60 px-4 py-2 text-xs font-semibold text-foreground backdrop-blur transition-all hover:border-primary/50 hover:text-primary"
+            >
+              <svg viewBox="0 0 32 32" className="h-4 w-4" fill="currentColor" aria-hidden>
+                <path d="M1.714 2.143A2.14 2.14 0 0 1 3.857 0h10.286a2.14 2.14 0 0 1 2.143 2.143v7.286h4.572a2.14 2.14 0 0 1 1.923 1.2l2.142 4.285a2.14 2.14 0 0 1 0 2.144l-2.142 4.285a2.14 2.14 0 0 1-1.923 1.199h-4.572v7.286A2.14 2.14 0 0 1 14.143 32H3.857a2.14 2.14 0 0 1-2.143-2.143V2.143Zm18 11.143h4.286l1.715 3.428-1.715 3.428H19.714v-6.856Z" />
+              </svg>
+              Watch on Kick
+            </a>
+          </div>
         </div>
 
         <div className="relative mx-auto w-full max-w-md lg:max-w-none">
