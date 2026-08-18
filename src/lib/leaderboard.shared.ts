@@ -1,6 +1,6 @@
 // Client-safe leaderboard constants and types.
 
-export const COMPETITION_START_ISO = "2026-08-01T07:00:00.000Z"; // 18 Aug 2026, 8:00 AM WAT
+export const COMPETITION_START_ISO = "2026-08-18T07:00:00.000Z"; // 18 Aug 2026, 8:00 AM WAT
 export const COMPETITION_END_ISO = "2026-09-01T07:00:00.000Z"; // 1 Sep 2026, 8:00 AM WAT
 
 export const PRIZES = [100, 60, 40, 30, 20] as const;
