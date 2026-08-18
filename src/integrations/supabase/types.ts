@@ -14,7 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leaderboard_baseline: {
+        Row: {
+          captured_at: string
+          player_id: string
+          starting_turnover: number
+        }
+        Insert: {
+          captured_at?: string
+          player_id: string
+          starting_turnover?: number
+        }
+        Update: {
+          captured_at?: string
+          player_id?: string
+          starting_turnover?: number
+        }
+        Relationships: []
+      }
+      leaderboard_state: {
+        Row: {
+          fetched_at: string | null
+          frozen: boolean
+          id: number
+          provider_updated_at: string | null
+          rows: Json
+        }
+        Insert: {
+          fetched_at?: string | null
+          frozen?: boolean
+          id?: number
+          provider_updated_at?: string | null
+          rows?: Json
+        }
+        Update: {
+          fetched_at?: string | null
+          frozen?: boolean
+          id?: number
+          provider_updated_at?: string | null
+          rows?: Json
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
