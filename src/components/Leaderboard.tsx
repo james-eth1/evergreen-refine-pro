@@ -60,7 +60,7 @@ export function Leaderboard() {
             <div className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground">
               Starts
             </div>
-            <div className="mt-2 font-display text-xl font-semibold">18 August · 8:00 AM</div>
+            <div className="mt-2 font-display text-xl font-semibold">18 August · 9:00 AM</div>
           </div>
           <div className="rounded-2xl border border-primary/40 bg-primary/10 p-5 text-center">
             <div className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground">
@@ -68,7 +68,7 @@ export function Leaderboard() {
             </div>
             <div className="mt-2 font-display text-xl font-semibold text-gold-gradient">
               {status === "upcoming"
-                ? "Leaderboard starts at 8:00 AM"
+                ? "Leaderboard starts at 9:00 AM"
                 : status === "live"
                   ? "Leaderboard is LIVE"
                   : "Final results"}
@@ -78,7 +78,7 @@ export function Leaderboard() {
             <div className="text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground">
               Ends
             </div>
-            <div className="mt-2 font-display text-xl font-semibold">1 September · 8:00 AM</div>
+            <div className="mt-2 font-display text-xl font-semibold">1 September · 9:00 AM</div>
           </div>
         </div>
 
