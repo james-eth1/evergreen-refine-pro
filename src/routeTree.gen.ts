@@ -10,33 +10,44 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicHooksLeaderboardRefreshRouteImport } from './routes/api/public/hooks/leaderboard-refresh'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicHooksLeaderboardRefreshRoute =
+  ApiPublicHooksLeaderboardRefreshRouteImport.update({
+    id: '/api/public/hooks/leaderboard-refresh',
+    path: '/api/public/hooks/leaderboard-refresh',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/public/hooks/leaderboard-refresh': typeof ApiPublicHooksLeaderboardRefreshRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/public/hooks/leaderboard-refresh': typeof ApiPublicHooksLeaderboardRefreshRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/public/hooks/leaderboard-refresh': typeof ApiPublicHooksLeaderboardRefreshRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/api/public/hooks/leaderboard-refresh'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/api/public/hooks/leaderboard-refresh'
+  id: '__root__' | '/' | '/api/public/hooks/leaderboard-refresh'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiPublicHooksLeaderboardRefreshRoute: typeof ApiPublicHooksLeaderboardRefreshRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +59,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/hooks/leaderboard-refresh': {
+      id: '/api/public/hooks/leaderboard-refresh'
+      path: '/api/public/hooks/leaderboard-refresh'
+      fullPath: '/api/public/hooks/leaderboard-refresh'
+      preLoaderRoute: typeof ApiPublicHooksLeaderboardRefreshRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiPublicHooksLeaderboardRefreshRoute: ApiPublicHooksLeaderboardRefreshRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

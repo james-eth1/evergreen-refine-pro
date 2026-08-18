@@ -11,6 +11,8 @@ import {
   BookOpen,
   ShieldCheck,
 } from "lucide-react";
+
+import { Leaderboard } from "@/components/Leaderboard";
 const oneWinLogoAsset = { url: "/1win-logo.png" };
 const logoAsset = { url: "/logo.png" };
 const bannerAsset = { url: "/banner.png" };
@@ -454,9 +456,7 @@ function Rewards() {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
               {title === "Bi-weekly Leaderboards" && (
                 <a
-                  href="https://one-vv9927.com/v3/7865/streamer-leaderboard-johnny-bravo"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#leaderboard"
                   className="mt-5 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-all hover:brightness-110"
                 >
                   View Leaderboard <ArrowRight className="h-4 w-4" />
@@ -694,6 +694,7 @@ function LandingPage() {
       <main>
         <Hero onJoin={join} />
         <Rewards />
+        <Leaderboard />
         <QRSection onJoin={join} />
         <Community />
         <Learn />
