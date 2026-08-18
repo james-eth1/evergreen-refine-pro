@@ -18,7 +18,7 @@ const medal: Record<number, string> = { 1: "🥇", 2: "🥈", 3: "🥉" };
 function formatUpdated(iso: string | null) {
   if (!iso) return "—";
   return new Date(iso).toLocaleString("en-GB", {
-    timeZone: "Africa/Lagos",
+    timeZone: "Europe/Warsaw",
     day: "2-digit",
     month: "short",
     hour: "2-digit",
@@ -98,7 +98,7 @@ export function Leaderboard() {
           ) : rows.length === 0 ? (
             <div className="px-7 py-12 text-center text-sm text-muted-foreground">
               {status === "upcoming"
-                ? "The competition has not started yet. Rankings appear once wagering begins at 8:00 AM."
+                ? "The competition has not started yet. Rankings appear once wagering begins at 9:00 AM."
                 : "No qualifying turnover recorded yet. Place your bets to appear on the board."}
             </div>
           ) : (
@@ -144,8 +144,8 @@ export function Leaderboard() {
             Prizes: {PRIZES.map((p, i) => `${i + 1}. ${money(p)}`).join(" · ")}
           </p>
           <p>
-            Data updates every hour · Last update {formatUpdated(data?.provider_updated_at ?? null)}{" "}
-            (WAT)
+           Updates every hour · Last update {formatUpdated(data?.provider_updated_at ?? null)}{" "}
+            (CEST)
           </p>
         </div>
 
